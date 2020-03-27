@@ -3,12 +3,25 @@
 // https://www.youtube.com/watch?v=m_u6P5k0vP0
 
 const functions = require("firebase-functions");
-const admin = require("firebase-admin");
 
+const app = require("express")();
+
+const admin = require("firebase-admin");
 admin.initializeApp();
 
-const express = require("express");
-const app = express();
+const firebase = require("firebase");
+const config = {
+  apiKey: "AIzaSyD2acfWydnSLYQOaxDNGoiBBahckHbUYbY",
+  authDomain: "socialape-93d05.firebaseapp.com",
+  databaseURL: "https://socialape-93d05.firebaseio.com",
+  projectId: "socialape-93d05",
+  storageBucket: "socialape-93d05.appspot.com",
+  messagingSenderId: "565819402963",
+  appId: "1:565819402963:web:857303ca29a5d2e831c226",
+  measurementId: "G-89G6PP77R7"
+};
+firebase.initializeApp(config);
+
 // C  ~/api/scream
 // R  ~/api/screams
 // U
@@ -43,7 +56,7 @@ app.post("/scream", (req, res) => {
   const newScream = {
     body: req.body.body,
     userHandle: req.body.userHandle,
-    createdAt: new Date().toISOString())
+    createdAt: new Date().toISOString()
   };
 
   admin
