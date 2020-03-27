@@ -9,11 +9,17 @@ admin.initializeApp();
 
 const express = require("express");
 const app = express();
+// C  ~/api/scream
+// R  ~/api/screams
+// U
+// D
 
+// Read (list) screams  ~/api/screams
 app.get("/screams", (req, res) => {
   admin
     .firestore()
     .collection("screams")
+    .orderBy("createdAt", "decending")
     .get()
     .then(data => {
       let screams = [];
@@ -32,6 +38,7 @@ app.get("/screams", (req, res) => {
     });
 });
 
+// Create a scream  ~/api/scream
 app.post("/scream", (req, res) => {
   const newScream = {
     body: req.body.body,
