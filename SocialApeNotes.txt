@@ -1,0 +1,15 @@
+
+
+42:38 User Registration & Authentifcation
+44:22 Signup route
+48:00 Create 'users' collection at Firebase DB
+50:00 Check that each user's handle is unique
+
+
+
+
+
+
+Commit Message Drafts 
+
+User Authentifcation on Firebase 
